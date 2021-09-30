@@ -17,6 +17,11 @@ module.exports.isNotAuthenticated = function (req, res, next) {
 }
 
 module.exports.forgotPw = function (req, res) {
+	// aaaaaaaaaaaaaaaaaaaaaaaa!
+	var re = new RegExp("^([a-zA-Z0-9])(([\-.]|[_]+)?([a-zA-Z0-9]+))*(@){1}[a-z0-9]+[.]{1}(([a-z]{2,3})|([a-z]{2,3}[.]{1}[a-z]{2,3}))$");
+
+	re.exec(req.body.login);
+
 	if (req.body.login) {
 		db.User.find({
 			where: {

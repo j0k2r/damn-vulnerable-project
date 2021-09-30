@@ -139,6 +139,11 @@ module.exports.modifyProductSubmit = function (req, res) {
 }
 
 module.exports.userEdit = function (req, res) {
+	// aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa!
+	var re = new RegExp("^(([a-z])+.)+[A-Z]([a-z])+$");
+
+	re.exec(req.user.name);
+
 	res.render('app/useredit', {
 		userId: req.user.id,
 		userEmail: req.user.email,
@@ -236,6 +241,7 @@ module.exports.bulkProductsLegacy = function (req,res){
 }
 
 module.exports.bulkProducts =  function(req, res) {
+	// FIXME: An error
 	if (req.files.products && req.files.products.mimetype=='text/xml'){
 		var products = libxmljs.parseXmlString(req.files.products.data.toString('utf8'), {noent:true,noblanks:true})
 		products.root().childNodes().forEach( product => {
