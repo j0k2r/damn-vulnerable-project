@@ -6,3 +6,5 @@ module.exports = {
   port: process.env.MYSQL_PORT || 3306,
   dialect: 'mysql'
 }
+
+
