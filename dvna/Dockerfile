@@ -2,9 +2,9 @@ FROM node:carbon
 
 WORKDIR /app
 
-COPY . .
+ADD . .
 
-RUN chmod +x /app/entrypoint.sh \
-	&& npm install
+RUN chmod +x /app/entrypoint.sh
+RUN npm install
 
 CMD ["bash", "/app/entrypoint.sh"]
