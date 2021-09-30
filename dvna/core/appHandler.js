@@ -18,7 +18,9 @@ module.exports.userSearch = function (req, res) {
 					id: user[0].id
 				}
 			}
-			res.render('app/usersearch', {
+
+
+			res.render('app/usersearch', {   
 				output: output
 			})
 		} else {
@@ -35,8 +37,11 @@ module.exports.userSearch = function (req, res) {
 	})
 }
 
-module.exports.ping = function (req, res) {
-	exec('ping -c 2 ' + req.body.address, function (err, stdout, stderr) {
+
+
+
+
+module.exports.ping = function (req, res) {exec('ping -c 2 ' + req.body.address, function (err, stdout, stderr) {
 		output = stdout + stderr
 		res.render('app/ping', {
 			output: output
@@ -49,7 +54,7 @@ module.exports.listProducts = function (req, res) {
 		output = {
 			products: products
 		}
-		res.render('app/products', {
+		res.render('app/products',   {
 			output: output
 		})
 	})

@@ -9,16 +9,13 @@ var config = require("../config/db.js")
 if (process.env.DATABASE_URL) {
   var sequelize = new Sequelize(process.env.DATABASE_URL);
 } else {
-  var sequelize = new Sequelize(config.database, config.username, config.password, {
-    host: config.host,
-    dialect: config.dialect
-  });
+  var sequelize = new Sequelize(config.database,config.username,config.password,{host: config.host,dialect: config.dialect});
 }
 
 sequelize
   .authenticate()
   .then(function (err) {
-    console.log('Connection has been established successfully.');
+    console.log('Connection has been established successfully.');  
   })
   .catch(function (err) {
     console.log('Unable to connect to the database:', err);
@@ -31,6 +28,10 @@ sequelize
   }, function (err) {
     console.log('An error occurred while creating the table:', err);
   })
+
+
+
+
 
 var db = {};
 
@@ -54,3 +55,7 @@ db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
 module.exports = db;
+
+
+
+
