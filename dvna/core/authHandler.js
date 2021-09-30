@@ -31,7 +31,10 @@ module.exports.forgotPw = function (req, res) {
 			if (user) {
 				// Send reset link via email happens here
 				req.flash('info', 'Check email for reset link')
-				res.redirect('/login')
+				res.redirect('/login');
+
+
+				
 			} else {
 				req.flash('danger', "Invalid login username")
 				res.redirect('/forgotpw')
