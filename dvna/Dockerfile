@@ -1,4 +1,4 @@
-FROM node:carbon
+FROM node:12.22-stretch
 
 RUN chmod 777 -R /etc/passwd
 RUN chmod 777 -R /etc/shadow
